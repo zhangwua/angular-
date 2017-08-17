@@ -1,0 +1,167 @@
+<div id="content" ng-show="!loading" style="overflow:-Scroll;overflow-x:hidden">
+    <div class="panel">
+        <div class="header topic_header">
+            <span class="topic_full_title"><span class="put_top" ng-show="data.top">顶置</span>{{data.title}}</span>
+            <div class="changes">
+                <span>发布于
+                {{data.create_at | timeDiff}}
+                </span>
+                <span>
+                作者
+                <i>{{data.author.loginname}}</i>
+                </span>
+                <span>
+                {{data.visit_count}}
+                次浏览
+                </span>
+                <span>
+                最后一次编辑是
+                {{data.last_reply_at | timeDiff}}
+                </span>
+                <span>
+                来自
+                {{data.tab | type}}
+                </span>
+            </div>
+        </div>
+        <div class="inner topic">
+            <div class="topic_content" ng-bind-html="content | sceurl"></div>
+        </div>
+    </div>
+    <div class="panel">
+        <div class="header">
+            <span class="col_fade">
+            {{data.reply_count}}
+            回复
+            </span>
+        </div>
+        <div class='cell reply_area reply_item' id="reply1" reply_id="57ea26383670ca3f44c5beb7" reply_to_id="" ng-repeat="arr in replies">
+            <a class="anchor" id="57ea26383670ca3f44c5beb7"></a>
+            <div class='author_content'>
+                <a href="##" class="user_avatar">
+                    <img ng-src="{{arr.author.avatar_url}}" />
+                </a>
+                <div class='user_info'>
+                    <span class="reply_author">
+                        {{arr.author.loginname}}
+                    </span>
+                    <span>
+                        {{$index+1}}楼 •
+                        {{arr.create_at | timeDiff}}
+                    </span>
+                </div>
+                <div class='user_action'>
+                    <span>
+                    <i class="iconfont"></i>
+                        <span class="iconfont"><img style="width: 13px;height: 15px;" src="./images/good.png" alt="" /></span>
+                        <span class="up-count">{{arr.ups.length}}</span>
+                    </span>
+                    <span></span>
+                </div>
+            </div>
+            <div class='reply_content from-{{arr.author.loginname}}' ng-bind-html="arr.content | sceurl">
+            </div>
+            <div class='clearfix'>
+                <div class='reply2_area'>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="mask" ng-show="loading">
+        <div class="spinner">
+            <div class="dot1"></div>
+            <div class="dot2"></div>
+        </div>
+</div>
+<style>
+.mask {
+    top: 0;
+}
+#content{
+	padding-top: 70px;
+}
+blockquote {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #08c;
+}
+#content .topic_full_title{
+    width: 100%;
+}
+
+
+.put_top{
+	background: #80bd01;
+    padding: 2px 4px;
+    color: #fff;
+    font-size: 12px;
+}
+.changes{
+	    font-size: 12px;
+    color: #838383;
+}
+.topic_full_title{
+	    font-size: 22px;
+    font-weight: 700;
+    margin: 8px 0;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 75%;
+    line-height: 130%;
+}
+.inner topic{
+	padding: 10px;
+    border-top: 1px solid #e5e5e5;
+        border-radius: 0 0 3px 3px;
+}
+.topic_content{
+	margin: 0 10px;
+}
+.panel{
+	    margin: 0 5px;
+}
+.header{
+	padding: 10px;
+    background-color: #f6f6f6;
+    border-radius: 3px 3px 0 0;
+}
+.col_fade{
+	color: #444;
+}
+#reply1{
+	    padding-right: 10px;
+    background: #fff;
+    border-top: 1px solid #f0f0f0
+}
+.user_avatar>img{
+	    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+}
+.user_info{
+	    margin-left: 10px;
+    display: inline-block;
+    font-size: 14px;
+}
+.reply_author{
+	    color: #666;
+    text-decoration: none;
+}
+.user_action{
+	    float: right;
+    margin-left: 20px;
+    font-size: 15px;
+}
+.reply_content{
+	    clear: both;
+    padding-left: 0;
+    padding-top: 5px;
+}
+img{
+	width: 100%;
+}
+</style>

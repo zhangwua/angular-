@@ -1,0 +1,138 @@
+<header class="headlines-top-nav">
+	<div class="leftContent" ng-class="{'silde-left':direction=='left','silde-right':direction=='right'}"><button class="buttonleft" ng-click="direction='left'"></button>
+		<ul>
+			<li><a href="#!/index/home">首页</a></li>
+			<li><a href="#!/new">新手入门</a></li>
+			<li><a href="#!/api">API</a></li>
+			<li><a href="">关于</a></li>
+			<li><a href="">注册</a></li>
+			<li><a href="">登录</a></li>
+		</ul>
+	</div>
+    <h3 class="title"><i class="buttonright" ng-click="direction='right'"></i><span style="margin-top: 0;" class="iconfont"><img style="width: 120px;height: 28px;" src="./images/cnode.svg" alt="" /></span></h3>
+    <nav>
+        <ul>
+            <li autofocus><a href="#!/index/home">全部</a></li>
+            <li autofocus><a href="#!/index/good">精华</a></li>
+            <li autofocus><a href="#!/index/contacts">分享</a></li>
+            <li autofocus><a href="#!/index/ask">问答</a></li>
+            <li autofocus><a href="#!/index/job">招聘</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+<style>
+
+/*--------顶部导航---------------*/
+.headlines-top-nav {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+.title{
+	position: relative;
+}
+.buttonleft{
+	float: right;
+	background-color: #fff;
+	background: url(./images/backer.svg);
+	background-size: 100% 100%;
+	width: 30px;
+	height: 30px;
+	border-radius: 3px;
+	
+}
+.buttonright{
+	background: url(./images/back.svg);
+	background-size: 100% 100%;
+	width: 30px;
+	height: 30px;
+	position: absolute;
+	left: 10px;
+	top: 5px;
+	
+}
+.headlines-top-nav > .title {
+    height: 42px;
+    line-height: 42px;
+    color: #fff;
+    background:#272727 ;
+    font-size: 28px;
+    text-align: center;
+}
+
+.headlines-top-nav > nav > ul {
+    width: 100%;
+    height: 30px;
+    background: #fafbfe;
+    border-bottom: 1px solid #d7d7d7;
+}
+
+.headlines-top-nav > nav > ul > li {
+    float: left;
+    width: 20%;
+    height: 100%;
+    line-height: 30px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.headlines-top-nav > nav > ul > li.active {
+    border-bottom: 1px solid #29a1f7;
+}
+
+.headlines-top-nav > nav > ul > li.active > a {
+    color: #29a1f7;
+}
+ul,li{
+	list-style: none;
+}
+* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.leftContent {
+			width: 200px;
+			height: 100%;
+			position: fixed;
+			background-color: black;
+			z-index: 99;
+			top: 0;
+			left: 0px;
+		}
+		.leftContent ul li a{
+			color: #fff;
+		}
+		.silde-left {
+			animation: moveLeft;
+			animation-duration: 1s;
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+		}
+		
+		.silde-right {
+			animation: moveRight;
+			animation-duration: 1s;
+			animation-iteration-count: 1;
+			animation-fill-mode: forwards;
+		}
+		
+		@keyframes moveLeft {
+			from {}
+			to {
+				transform: translateX(-200px);
+			}
+		}
+		
+		@keyframes moveRight {
+			from {
+				transform: translateX(-200px);
+			}
+			to {}
+		}
+		
+</style>
